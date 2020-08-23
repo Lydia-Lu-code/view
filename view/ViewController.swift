@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     @IBOutlet var numaberBtns: [UIButton]!
     @IBOutlet var imageView: [UIImageView]!
     
+    @IBOutlet var slippersImageView: [UIImageView]!
+    
+    
+    
     var password = ""
 
     func changeImage(){
@@ -21,24 +25,34 @@ class ViewController: UIViewController {
             imageView[1].image = UIImage(named: "icon5.png")
             imageView[2].image = UIImage(named: "icon5.png")
             imageView[3].image = UIImage(named: "icon5.png")
+            slippersImageView[0].isHidden = false
             
         case 1:
             imageView[0].image = UIImage(named: "icon1.png")
             imageView[1].image = UIImage(named: "icon2.png")
             imageView[2].image = UIImage(named: "icon5.png")
             imageView[3].image = UIImage(named: "icon5.png")
+            slippersImageView[0].isHidden = false
+            slippersImageView[1].isHidden = false
             
         case 2:
             imageView[0].image = UIImage(named: "icon1.png")
             imageView[1].image = UIImage(named: "icon2.png")
             imageView[2].image = UIImage(named: "icon3.png")
             imageView[3].image = UIImage(named: "icon5.png")
+            slippersImageView[0].isHidden = false
+            slippersImageView[1].isHidden = false
+            slippersImageView[2].isHidden = false
             
         case 3:
             imageView[0].image = UIImage(named: "icon1.png")
             imageView[1].image = UIImage(named: "icon2.png")
             imageView[2].image = UIImage(named: "icon3.png")
             imageView[3].image = UIImage(named: "icon4.png")
+            slippersImageView[0].isHidden = false
+            slippersImageView[1].isHidden = false
+            slippersImageView[2].isHidden = false
+            slippersImageView[3].isHidden = false
             
         default:
             clearImage()
@@ -51,6 +65,10 @@ class ViewController: UIViewController {
         imageView[1].image = UIImage(named: "icon5.png")
         imageView[2].image = UIImage(named: "icon5.png")
         imageView[3].image = UIImage(named: "icon5.png")
+        slippersImageView[0].isHidden = true
+        slippersImageView[1].isHidden = true
+        slippersImageView[2].isHidden = true
+        slippersImageView[3].isHidden = true
     }
         
 
@@ -64,14 +82,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         clearImage()
+        slippersImageView[0].isHidden = true
+        slippersImageView[0].transform = CGAffineTransform(rotationAngle: 295)
+        slippersImageView[1].isHidden = true
+        slippersImageView[1].transform = CGAffineTransform(rotationAngle: 225)
+        slippersImageView[2].isHidden = true
+        slippersImageView[2].transform = CGAffineTransform(rotationAngle: 294.55)
+        slippersImageView[3].isHidden = true
+        slippersImageView[3].transform = CGAffineTransform(rotationAngle: 225)
     }
     
     @IBAction func Buttons(_ sender: UIButton) {
 
         if let inputPassword = sender.titleLabel?.text {
             password.append(inputPassword)
-            print("password.count=\(password.count)")
-            print("inputPassword= \(inputPassword)")
             if password.count < 4{
                 
                 changeImage()
